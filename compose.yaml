@@ -1,6 +1,6 @@
 services:
   wordpress1:
-    image: wordpress:latest
+    image: docker.io/library/wordpress:latest
     container_name: wordpress1
     environment:
       WORDPRESS_DB_HOST: dbserver
@@ -19,7 +19,7 @@ services:
       - db_password
 
   wordpress2:
-    image: wordpress:latest
+    image: docker.io/library/wordpress:latest
     container_name: wordpress2
     environment:
       WORDPRESS_DB_HOST: dbserver
