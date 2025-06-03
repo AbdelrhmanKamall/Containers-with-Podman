@@ -1,9 +1,6 @@
-# WordPress Multi-Site Environment on an EC2 with Podman  
+# WordPress Multi-Site Environment on an the same node with Podman  
 ---
-
 This Compose file defines a multi-container environment using Podman to deploy two separate WordPress websites (wordpress1 and wordpress2) that share a common mysql database (dbserver) on ONE ec2 instance. Each WordPress site uses a different database table prefix to isolate its data within the shared database. Sensitive credentials like database passwords are securely managed using Podman Secrets, and all containers communicate over a private network appnet. This setup ensures secure, efficient, and persistent deployment of multiple independent WordPress sites on a single infrastructure.
-
-![task1-diagram.png](./Imgs/task1-diagram.png)
 
 ## Setup Overview
 
@@ -31,7 +28,7 @@ This Compose file defines a multi-container environment using Podman to deploy t
 
 ### 3. Secure Credential Management
 
-- , **Secrets** are a secure way to handle sensitive information such as passwords, API keys, database credentials, and tokens outside of plain text files like compose.yaml or .env files, they are created using Podman and mounted inside containers at `/run/secrets/`.
+- **Secrets** are a secure way to handle sensitive information such as passwords, API keys, database credentials, and tokens outside of plain text files like compose.yaml or .env files, they are created using Podman and mounted inside containers at `/run/secrets/`.
 - Environment variables use the `_FILE` convention to load sensitive values directly from secrets.
 - No sensitive data is stored in plain text.
 
